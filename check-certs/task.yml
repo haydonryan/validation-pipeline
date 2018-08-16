@@ -1,0 +1,38 @@
+---
+
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: pcfnorm/rootfs
+
+params:
+  
+  SAML_SSL_CERT:
+  SAML_SSL_PRIVATE_KEY:
+  HAPROXY_FORWARD_TLS:
+  HAPROXY_BACKEND_CA:
+  ROUTER_TLS_CIPHERS:
+  HAPROXY_TLS_CIPHERS:
+  FRONTEND_IDLE_TIMEOUT:
+  
+  SYSTEM_DOMAIN:
+  APPS_DOMAIN:
+  
+  POE_SSL_NAME1:
+  POE_SSL_CERT1:
+  POE_SSL_KEY1:
+  POE_SSL_NAME2:
+  POE_SSL_CERT2:
+  POE_SSL_KEY2:
+  POE_SSL_NAME3:
+  POE_SSL_CERT3:
+  POE_SSL_KEY3:
+  
+
+inputs:
+  - name: validator-pipelines
+
+run:
+  path: pcf-pipelines/tasks/config-ert/task.sh
