@@ -1,5 +1,4 @@
 ---
-
 platform: linux
 
 image_resource:
@@ -19,4 +18,4 @@ inputs:
   - name: validator-pipelines
 
 run:
-  path: pcf-pipelines/tasks/config-ert/task.sh
+  path: validator-pipelines/check-certs/task.sh
