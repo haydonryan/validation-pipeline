@@ -10,27 +10,11 @@ image_resource:
 params:
   SYSTEM_DOMAIN:
   APPS_DOMAIN:
-  
-
+ 
   POE_SSL_CERT1:
   POE_SSL_KEY1:
   TRUSTED_CERTS:
   
- #
- # POE_SSL_NAME2:
- # POE_SSL_CERT2:
- # POE_SSL_KEY2:
- # POE_SSL_NAME3:
- # POE_SSL_CERT3:
- # POE_SSL_KEY3:
-  POE_SSLSERVER_CERT1:
-POE_SSL_CERT1:
-POE_SSL_CA_CERT1:
-POE_SSL_KEY1:
-TRUSTED_CERTS:
-SYSTEM_DOMAIN:
-APPS_DOMAIN:
-
 inputs:
   - name: validator-pipelines
 
