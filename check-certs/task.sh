@@ -100,13 +100,13 @@ echo $TRUSTED_CERTS |perl -pe 's/\\n/\n/g' > /tmp/trusted.cert
 
 # we need to split server cert from intermediate certs for our testing
 # note only supports one intermediate cert
-split -p "-----BEGIN CERTIFICATE-----" /tmp/server.cert /tmp/split-
+csplit -f /tmp/split- /tmp/server.cert '/-----BEGIN CERTIFICATE-----/' '{*}'
 
 # openssl verify allows you to put multiple root ca certs in the trusted cert section
 # openssl verify -CAfile root.pem -untrusted ca.cert site.pem
 #if `openssl verify -CAfile ca.cert -untrusted /tmp/split-ab /tmp/split-aa | grep -i "error"`; then
 #[[ $(/usr/local/bin/monit --version) != *5.5* ]]
-if [[ `openssl verify -CAfile /tmp/trusted.cert -untrusted /tmp/split-ab /tmp/split-aa` != *error* ]]; then
+if [[ `openssl verify -CAfile /tmp/trusted.cert -untrusted /tmp/split-02 /tmp/split-01` != *error* ]]; then
 echo 
 echo "Certificate chain is valid"
 echo 
@@ -120,9 +120,9 @@ fi
 #  $ openssl x509 -enddate -noout -in  site.pem
 #  notAfter=Aug 10 15:42:41 2027 GMT
 
-ENDDATE=$(openssl x509 -enddate -noout -in  /tmp/split-aa)
+ENDDATE=$(openssl x509 -enddate -noout -in  /tmp/split-01)
 echo Server Certificate expires on ${ENDDATE#*=}
-if openssl x509 -checkend 15552000 -noout -in /tmp/split-aa
+if openssl x509 -checkend 15552000 -noout -in /tmp/split-01
 then
   echo "Certificate is good for at least 6 months!"
 else
@@ -134,7 +134,7 @@ fi
 # The Private Key must match the cert
 #hnrglobal.com.key
 MOD_KEY="$(openssl rsa -noout -modulus -in /tmp/server.key)"
-MOD_SERVER="$(openssl x509 -noout -modulus -in /tmp/split-aa)"
+MOD_SERVER="$(openssl x509 -noout -modulus -in /tmp/split-01)"
 if [[  $MOD_KEY == $MOD_SERVER ]]; then
 echo "This key is the correct key for the server cert"
 else
