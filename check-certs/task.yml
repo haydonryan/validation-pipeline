@@ -6,16 +6,16 @@ image_resource:
   source:
     repository: pcfnorm/rootfs
 
-params:
-  SYSTEM_DOMAIN:
-  APPS_DOMAIN:
- 
-  POE_SSL_CERT1:
-  POE_SSL_KEY1:
-  TRUSTED_CERTS:
-  
 inputs:
   - name: validation-pipelines
 
 run:
-  path: validation-pipelines/check-certs/task.sh
+  path: ./validation-pipelines/check-certs/task.sh
+
+params:
+  SYSTEM_DOMAIN:
+  APPS_DOMAIN:
+  POE_SSL_CERT1:
+  POE_SSL_KEY1:
+  TRUSTED_CERTS:
+  
