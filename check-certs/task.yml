@@ -7,10 +7,10 @@ image_resource:
     repository: pcfnorm/rootfs
 
 inputs:
-  - name: validation-pipelines
+  - name: validation-pipeline
 
 run:
-  path: ./validation-pipelines/check-certs/task.sh
+  path: ./validation-pipeline/check-certs/task.sh
 
 params:
   SYSTEM_DOMAIN:
