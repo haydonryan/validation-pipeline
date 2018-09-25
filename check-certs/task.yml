@@ -15,7 +15,7 @@ params:
   TRUSTED_CERTS:
   
 inputs:
-  - name: validator-pipelines
+  - name: validation-pipelines
 
 run:
-  path: validator-pipelines/check-certs/task.sh
+  path: validation-pipelines/check-certs/task.sh
