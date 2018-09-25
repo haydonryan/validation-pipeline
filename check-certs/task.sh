@@ -16,6 +16,7 @@
 
 # SYSTEM_DOMAIN: {{system_domain}}
 # APPS_DOMAIN: {{apps_domain}}
+
 UAA_DOMAIN="*.uaa.${SYSTEM_DOMAIN}"
 LOGIN_DOMAIN="*.login.${SYSTEM_DOMAIN}"
 WILDCARD_SYSTEM_DOMAIN="*.${SYSTEM_DOMAIN}"
