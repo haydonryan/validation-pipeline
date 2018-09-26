@@ -31,7 +31,7 @@ FOUND_APPS=0
 # echo $LOGIN_DOMAIN
 # echo $POE_SSL_CERT1
 # echo $POE_SSL_KEY1
-# echo $TRUSTED_CERTS
+  echo $TRUSTED_CERTS
 
 
 if [[ -z "$TRUSTED_CERTS" ]]; then
