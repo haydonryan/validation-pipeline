@@ -96,7 +96,7 @@ fi
 
 echo $POE_SSL_CERT1 |perl -pe 's/\\n/\n/g' > /tmp/server.cert
 echo $POE_SSL_KEY1 |perl -pe 's/\\n/\n/g' > /tmp/server.key
-echo $TRUSTED_CERTS |perl -pe 's/\\n/\n/g' > /tmp/trusted.cert
+echo $TRUSTED_CERTS > /tmp/trusted.cert
 
 # we need to split server cert from intermediate certs for our testing
 # note only supports one intermediate cert
