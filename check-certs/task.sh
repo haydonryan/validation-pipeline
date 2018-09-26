@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # support ROUTING_CUSTOM_CA_CERTIFICATES
 # Param 1: Apps Domain
