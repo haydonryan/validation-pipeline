@@ -1,0 +1,26 @@
+resources:
+- name: validation-pipeline
+  type: git
+  source:
+    uri: https://github.com/haydonryan/validation-pipeline.git
+    branch: master
+ 
+
+jobs:
+- name: validate-certificates
+  serial: false
+  max_in_flight: 1
+
+  plan:
+  - aggregate:
+    - get: validation-pipeline
+    
+    
+  - task: validate-certificates
+    file: validation-pipeline/check-certs/task.yml
+    params:
+      SYSTEM_DOMAIN: ((system_domain))
+      APPS_DOMAIN: ((apps_domain))
+      POE_SSL_CERT1: ((poe_ssl_cert1))
+      POE_SSL_KEY1:  ((poe_ssl_key1))
+      TRUSTED_CERTS: ((trusted_certs))
